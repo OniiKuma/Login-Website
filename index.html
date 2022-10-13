@@ -1,0 +1,82 @@
+<!--This tells the browser what type of document to expect.-->
+ <!DOCTYPE html>
+ <!--Starts the HTML document-->
+ <html>
+<!--This starts the head section-->
+<!--This is a great place for page level styles-->
+<!--This is a great place for page level JavaScript-->
+<head>
+    <!--this labels the tab-->
+    <title>Login Master</title>
+<!--add css--> 
+<link rel="stylesheet" href="style.css">
+<!--start the JS section-->
+<script>
+    //create a function to validate the user
+    function validateUser() {
+        //get the user's first name, last name and badge number
+        var firstName = document.getElementById("firstName").value;
+        var lastName = document.getElementById("lastName").value;
+        var badgeNumber = document.getElementById("badgeNumber").value;
+        //now let's concatnate the first and last name
+        var fullName = firstName + " " + lastName;
+        //display a welcome with the full namer to the user in an alert
+        alert("Welcome " + fullName);
+        //validate the length of the full name
+        if(fullName.length > 20) {
+            //display an error message to the user
+            alert("Your full name must be less than 20 characters long. \nEnter REAL name this time.");
+            return false;
+        }
+        else{
+            //full name is less than 20 characters long, welcome the user
+            alert("Your full name is valid.");
+        }
+        //validate the length of the badge number
+        if(badgeNumber.length == 3) {
+            //if the badge number is less than 3 characters long, welcome the user
+            alert("Badge number appears to be accurate, enjoy your stay comrade.");
+            return true;
+        }
+        else if (badgeNumber.length < 3){
+           //display an error message 
+            alert("Unfortunately that badge number doesn't exist or doesn't belong to you. \nYou shall try again.");
+        }
+        else if (badgeNumber.length > 3){
+            alert("Unfortunately that badge number doesn't exist or doesn't belong to you. \nYou shall try again.");
+        }
+
+    }
+</script>
+
+<!--this closes the head section-->
+</head>
+
+<!--This starts the body in the HTML Document-->
+<body>
+    <!--this is the header of the page-->
+    <br><h1>Login Master</h1>
+        <!--this starts the paragraph-->
+        <p>This will let you get into the space station where there is lots of nice air.
+            If you are not authorized, you will be locked out of the space station where the air is a bit thin.
+<!--this ends the paragraph section-->
+<!--some line breaks for space-->
+<br><br></p>
+<p> <image src="https://www.popsci.com/uploads/2019/03/18/M3DVI7OUWJV5X4TWAGEKYMNLXY.jpg?auto=webp" alt="space image" height="400" width="550"></p>
+</p>
+<!--another line break-->
+</br>
+    <!--Create a textbox for user first name-->
+    <input type="text" id="firstName" placeholder=" First Name">
+        <!--Create a textbox for user last name-->
+        <input type="text" id="lastName" placeholder=" Last Name">
+            <!--create a text box for the user's badge number-->
+            <!--line breaks for space-->
+            <br><br><input type="text" id="badgeNumber" placeholder=" Badge Number">
+                <!--Create a button to submit the form-->
+                <!--line breaks for space-->
+                <br><br><button id="submit" onclick="validateUser()">Log in</button>
+<!--This ends the body in the HTML Document-->
+</body>
+<!--End the HTML document-->
+</html>
